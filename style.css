@@ -1,0 +1,212 @@
+
+/* CSS RESET */
+
+*, 
+*::before, 
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  line-height: 1.5;
+}
+
+img, 
+picture
+ {
+  display: block;
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+a {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+:where(ul, ol) {
+  list-style-type: "";
+  padding: 0;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+
+/* FONTS */
+
+
+@font-face {
+  font-display: swap;
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/outfit-v14-latin-regular.woff2') format('woff2');
+}
+/* outfit-700 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/outfit-v14-latin-700.woff2') format('woff2');
+}
+
+
+/* CUSTOM PROPERTIES */
+
+:root {
+
+    /* Primitive properties */
+
+    /* COLORS */
+
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-slate-300: hsl(212, 45%, 89%);
+    --clr-slate-500: hsl(216, 15%, 35%); /* decreased lightness from 48% to meet WCAG AAA contrast requirement */
+    --clr-slate-900: hsl(218, 44%, 22%);
+
+    /* TYPOGRAPHY */
+
+    --ff-sans-serif: 'Outfit';
+    --fw-400: 400;
+    --fw-700: 700;
+    --fs-22px: 1.375rem;
+
+    /* SPACING */
+
+    --space-16px: 16px;
+    --space-24px: 24px;
+    --space-40px: 40px;
+
+
+    /* Semantic properties */
+
+    /* COLORS */
+    
+    --clr-light: var(--clr-white);
+    --clr-bg: var(--clr-slate-300);
+    --clr-secondary: var(--clr-slate-500);
+    --clr-primary: var(--clr-slate-900);
+
+    /* TYPOGRAPHY */
+
+    --ff-primary: var(--ff-sans-serif);
+    --fw-regular: var(--fw-400);
+    --fw-bold: var(--fw-700);
+    --fs-large: var(--fs-22px);
+
+    /* SPACING */
+
+    --space-200: var(--space-16px);
+    --space-300: var(--space-24px);
+    --space-500: var(--space-40px);
+}
+
+/* UTILITIES */
+
+.flow {
+    --flow-space: var(--space-200);
+}
+
+.flow > * + * {
+    margin-block-start: var(--flow-space, 1em);
+}
+
+.visually-hidden {
+    clip-path: inset(50%);
+    position: absolute;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+}
+
+
+/* GENERAL STYLING */
+
+a:hover {
+    opacity: .8;
+}
+
+body {
+    background-color: var(--clr-bg);
+    color: var(--clr-primary);
+    padding: var(--space-200);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100svh;
+    gap: var(--space-200);
+    font-family: var(--ff-primary);
+    text-align: center;
+}
+
+.card {
+    max-width: 20rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-300);
+    background-color: var(--clr-light);
+    padding: var(--space-200) var(--space-200) var(--space-500);
+    border-radius: 20px;
+    box-shadow: 0px 25px 25px 0px rgb(0 0 0 / .05);
+}
+
+.image {
+    border-radius: 10px;
+}
+
+.content {
+    padding-inline: var(--space-200);
+    color: var(--clr-secondary);
+    line-height: 1.4;
+}
+
+.heading {
+    line-height: 1.2;
+    font-size: var(--fs-large);
+}
+
+
+
